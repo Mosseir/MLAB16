@@ -17,3 +17,26 @@ int main(){
 	
 	return 0;
 }
+
+void shuffle(int &a, int &b, int &c, int &d)
+{
+	int &temp1 = a, &temp2 = b, &temp3 = c, &temp4 = d;
+	int dummy1[] = {temp1, temp2, temp3, temp4};
+	int dummy2[] = {0, 0, 0, 0};
+	for (int i = 0; i < 4; i++)
+	{
+		dummy2[i] = rand()%4;
+		for (int j = 0; j < i; j++)
+		{
+			if (dummy2[i] == dummy2[j])
+			{
+				i--;
+				break;
+			}
+		}
+	}
+	a = dummy1[dummy2[0]];
+	b = dummy1[dummy2[1]];
+	c = dummy1[dummy2[2]];
+	d = dummy1[dummy2[3]];
+}
